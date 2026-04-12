@@ -1,0 +1,194 @@
+---
+const currentPath = Astro.url.pathname;
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/about', label: 'About' },
+  { href: '/products', label: 'Products' },
+  { href: '/contact', label: 'Contact' }
+];
+---
+
+<nav class="navigation">
+  <div class="container">
+    <div class="nav-content">
+      <div class="nav-logo">
+        <a href="/">MERC TECHNOLOGIES</a>
+      </div>
+
+      <button class="hamburger" aria-label="Toggle menu" aria-expanded="false">
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+        <span class="hamburger-line"></span>
+      </button>
+
+      <ul class="nav-links">
+        {navItems.map(item => (
+          <li>
+            <a
+              href={item.href}
+              class:list={['nav-link', { active: currentPath === item.href }]}
+            >
+              {item.label}
+            </a>
+          </li>
+        ))}
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<script>
+  // Mobile menu toggle functionality
+  const hamburger = document.querySelector('.hamburger');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', () => {
+      const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+      hamburger.setAttribute('aria-expanded', (!isExpanded).toString());
+      hamburger.classList.toggle('active');
+      navLinks.classList.toggle('active');
+    });
+
+    // Close menu when a link is clicked
+    const links = navLinks.querySelectorAll('.nav-link');
+    links.forEach(link => {
+      link.addEventListener('click', () => {
+        hamburger.classList.remove('active');
+        navLinks.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+      });
+    });
+  }
+</script>
+
+<style>
+  .navigation {
+    border-bottom: var(--border-thick);
+    background-color: var(--color-white);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+
+  .nav-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: var(--space-md) 0;
+    position: relative;
+  }
+
+  .nav-logo a {
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    background: none;
+    border: var(--border-thick);
+    padding: 10px;
+    cursor: pointer;
+    z-index: 101;
+  }
+
+  .hamburger-line {
+    display: block;
+    width: 25px;
+    height: 2px;
+    background-color: var(--color-black);
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(8px, 8px);
+  }
+
+  .hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -7px);
+  }
+
+  .hamburger:hover {
+    background-color: var(--color-black);
+  }
+
+  .hamburger:hover .hamburger-line {
+    background-color: var(--color-white);
+  }
+
+  .nav-links {
+    display: flex;
+    list-style: none;
+    gap: var(--space-lg);
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    padding: 8px 16px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+  }
+
+  .nav-link:hover {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+
+  .nav-link.active {
+    background-color: var(--color-black);
+    color: var(--color-white);
+  }
+
+  @media (max-width: 768px) {
+    .hamburger {
+      display: flex;
+    }
+
+    .nav-links {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      flex-direction: column;
+      gap: 0;
+      background-color: var(--color-white);
+      border-top: var(--border-thick);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: opacity 0.3s ease, transform 0.3s ease, visibility 0.3s;
+      pointer-events: none;
+    }
+
+    .nav-links.active {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+      pointer-events: auto;
+    }
+
+    .nav-links li {
+      border-bottom: var(--border-thin);
+    }
+
+    .nav-links li:last-child {
+      border-bottom: none;
+    }
+
+    .nav-link {
+      display: block;
+      width: 100%;
+      padding: var(--space-md) var(--space-md);
+    }
+  }
+</style>

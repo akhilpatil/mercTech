@@ -1,0 +1,51 @@
+---
+import Button from './Button.astro';
+---
+
+<form class="contact-form">
+  <div class="form-group">
+    <label for="name">Name *</label>
+    <input type="text" id="name" name="name" required />
+  </div>
+
+  <div class="form-group">
+    <label for="company">Company *</label>
+    <input type="text" id="company" name="company" required />
+  </div>
+
+  <div class="form-group">
+    <label for="email">Email *</label>
+    <input type="email" id="email" name="email" required />
+  </div>
+
+  <div class="form-group">
+    <label for="phone">Phone</label>
+    <input type="tel" id="phone" name="phone" />
+  </div>
+
+  <div class="form-group">
+    <label for="requirement">Requirement Details *</label>
+    <textarea id="requirement" name="requirement" rows="6" required></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="drawing">Upload Drawing/Specification (PDF, DWG, DXF)</label>
+    <input type="file" id="drawing" name="drawing" accept=".pdf,.dwg,.dxf" />
+  </div>
+
+  <Button type="submit" large>Submit Inquiry</Button>
+</form>
+
+<style>
+  .contact-form {
+    max-width: 600px;
+  }
+
+  textarea {
+    resize: vertical;
+  }
+
+  input[type="file"] {
+    padding: 8px;
+  }
+</style>

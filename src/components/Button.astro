@@ -1,0 +1,20 @@
+---
+interface Props {
+  href?: string;
+  large?: boolean;
+  type?: 'button' | 'submit' | 'reset';
+}
+
+const { href, large = false, type = 'button' } = Astro.props;
+const className = large ? 'button button-large' : 'button';
+---
+
+{href ? (
+  <a href={href} class={className}>
+    <slot />
+  </a>
+) : (
+  <button type={type} class={className}>
+    <slot />
+  </button>
+)}

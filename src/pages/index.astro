@@ -1,0 +1,268 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Hero from '../components/Hero.astro';
+import Section from '../components/Section.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout title="Home" description="Merc Technologies - Precision Gauge Manufacturing for Critical Tolerances">
+  <Hero />
+
+  <!-- What We Do -->
+  <Section>
+    <h2 class="text-center mb-lg">What We Do</h2>
+    <div class="grid grid-3">
+      <ServiceCard
+        title="Standard Gauges"
+        description="Complete line of plug, ring, snap, and thread gauges manufactured to ASME B89.1.5 and ISO 1938 standards."
+      />
+      <ServiceCard
+        title="Custom Gauge Design"
+        description="Engineering services for special-purpose gauges designed to your exact specifications and tolerances."
+      />
+      <ServiceCard
+        title="Calibration Services"
+        description="NIST-traceable calibration and certification for all gauge types with fast turnaround."
+      />
+    </div>
+  </Section>
+
+  <!-- Industries We Serve -->
+  <Section className="industries-section">
+    <h2 class="text-center mb-lg">Industries We Serve</h2>
+    <div class="industries-grid">
+      <div class="industry-item">Automotive Manufacturing</div>
+      <div class="industry-item">Aerospace & Defense</div>
+      <div class="industry-item">Medical Device Manufacturing</div>
+      <div class="industry-item">Oil & Gas Equipment</div>
+      <div class="industry-item">Precision Machining</div>
+      <div class="industry-item">Tool & Die</div>
+    </div>
+  </Section>
+
+  <!-- Product Overview -->
+  <Section>
+    <h2 class="text-center mb-lg">Product Overview</h2>
+    <div class="product-categories">
+      <div class="category-card card">
+        <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+        <h3>Plain Gauges</h3>
+        <p>Plug, ring, and snap gauges for dimensional inspection. Available in standard sizes or custom configurations.</p>
+      </div>
+      <div class="category-card card">
+        <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+        <h3>Thread Gauges</h3>
+        <p>UN, UNJ, Metric, NPT, and custom thread forms. Class X, XX, and XXX tolerance grades available.</p>
+      </div>
+      <div class="category-card card">
+        <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+        <h3>Carbide Gauges</h3>
+        <p>Superior wear resistance for high-volume production environments. Sizes from 0.010" to 12.000".</p>
+      </div>
+      <div class="category-card card">
+        <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+        <h3>Master Gauges</h3>
+        <p>Setting masters and calibration standards for gauge verification and quality system compliance.</p>
+      </div>
+      <div class="category-card card">
+        <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+        <h3>Special Gauges</h3>
+        <p>Custom solutions including form gauges, fixture gauges, and application-specific inspection tools.</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Custom Solutions -->
+  <Section className="custom-solutions">
+    <div class="custom-content">
+      <div class="custom-text">
+        <h2>Custom Gauge Solutions</h2>
+        <p class="mb-md">
+          When standard gauges don't meet your requirements, our engineering team designs and manufactures custom solutions.
+          From concept to delivery, we work with your specifications to ensure perfect fit and function.
+        </p>
+        <ul class="mb-lg">
+          <li>In-house engineering and design</li>
+          <li>Reverse engineering capabilities</li>
+          <li>Prototype development</li>
+          <li>Production runs of any quantity</li>
+          <li>Full documentation and certification</li>
+        </ul>
+        <Button href="/contact" large>Discuss Your Project</Button>
+      </div>
+      <div class="custom-image">
+        <div class="image-placeholder image-placeholder-4-3"></div>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Why Merc Technologies -->
+  <Section>
+    <h2 class="text-center mb-lg">Why Merc Technologies</h2>
+    <div class="grid grid-2">
+      <div class="feature-item">
+        <h4>Precision Manufacturing</h4>
+        <p>State-of-the-art CNC grinding and lapping equipment ensures micron-level accuracy on every gauge.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Quality Assurance</h4>
+        <p>ISO 9001:2015 certified processes with 100% inspection and full traceability documentation.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Fast Turnaround</h4>
+        <p>Standard gauges ship in 5-7 days. Custom gauges typically delivered in 3-4 weeks.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Technical Support</h4>
+        <p>Expert application engineers available to help select the right gauge for your needs.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Material Options</h4>
+        <p>Tool steel, carbide, chrome plated, and specialized materials for demanding applications.</p>
+      </div>
+      <div class="feature-item">
+        <h4>Competitive Pricing</h4>
+        <p>Direct manufacturer pricing with volume discounts available for production quantities.</p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Use Case -->
+  <Section className="use-case">
+    <h2 class="text-center mb-lg">Use Case: Automotive Shaft Inspection</h2>
+    <div class="use-case-content">
+      <div class="use-case-challenge">
+        <h3>Challenge</h3>
+        <p>
+          A Tier 1 automotive supplier needed to inspect transmission shafts with a tolerance of ±0.0002"
+          at high volume (10,000+ parts per day). Standard commercial gauges wore out too quickly,
+          causing quality issues and production delays.
+        </p>
+      </div>
+      <div class="use-case-solution">
+        <h3>Solution</h3>
+        <p>
+          Merc Technologies designed custom carbide snap gauges with hardened anvils specifically
+          for this application. The gauge design included wear indicators and quick-change contact points.
+        </p>
+      </div>
+      <div class="use-case-results">
+        <h3>Results</h3>
+        <ul>
+          <li>Gauge life increased from 2 weeks to 6 months</li>
+          <li>Inspection time reduced by 40%</li>
+          <li>Zero quality escapes since implementation</li>
+          <li>$45,000 annual savings in gauge replacement costs</li>
+        </ul>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Final CTA -->
+  <Section className="final-cta">
+    <div class="cta-content">
+      <h2>Ready to Improve Your Quality Process?</h2>
+      <p class="mb-lg">
+        Contact our engineering team to discuss your gauge requirements.
+        We'll help you select or design the perfect solution.
+      </p>
+      <div class="cta-buttons">
+        <Button href="/contact" large>Request Quote</Button>
+        <Button href="/products" large>Browse Products</Button>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .industries-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .industry-item {
+    padding: var(--space-lg);
+    border: var(--border-thin);
+    text-align: center;
+    font-weight: 600;
+  }
+
+  .product-categories {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .category-card h3 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .custom-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+    align-items: center;
+  }
+
+  .custom-solutions {
+    background-color: var(--color-white);
+    border-top: var(--border-thick);
+    border-bottom: var(--border-thick);
+  }
+
+  .feature-item {
+    padding: var(--space-lg);
+    border: var(--border-thin);
+  }
+
+  .feature-item h4 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-item p {
+    margin-bottom: 0;
+  }
+
+  .use-case-content {
+    display: grid;
+    gap: var(--space-lg);
+  }
+
+  .use-case-challenge,
+  .use-case-solution,
+  .use-case-results {
+    padding: var(--space-lg);
+    border: var(--border-thin);
+  }
+
+  .use-case-challenge h3,
+  .use-case-solution h3,
+  .use-case-results h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .final-cta .cta-content {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .industries-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .cta-buttons {
+      flex-direction: column;
+    }
+  }
+</style>

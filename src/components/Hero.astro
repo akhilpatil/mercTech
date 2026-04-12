@@ -1,0 +1,87 @@
+---
+import Button from './Button.astro';
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <h1>Precision Gauge Manufacturing for Critical Tolerances</h1>
+      <p class="hero-subtitle">
+        ISO-certified gauge solutions engineered for automotive, aerospace, and manufacturing industries.
+        Custom and standard gauges built to exacting specifications.
+      </p>
+      <div class="hero-ctas">
+        <Button href="/products" large>View Products</Button>
+        <Button href="/contact" large>Request Quote</Button>
+      </div>
+    </div>
+
+    <div class="hero-image">
+      <div class="image-placeholder image-placeholder-16-9"></div>
+    </div>
+
+    <div class="trust-strip">
+      <div class="trust-item">ISO 9001:2015 Certified</div>
+      <div class="trust-item">20+ Years Experience</div>
+      <div class="trust-item">Micron-Level Precision</div>
+      <div class="trust-item">Custom Solutions</div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    padding: var(--space-2xl) 0;
+  }
+
+  .hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: var(--space-xl);
+  }
+
+  .hero-subtitle {
+    font-size: 18px;
+    margin-bottom: var(--space-xl);
+    line-height: 1.8;
+  }
+
+  .hero-ctas {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .hero-image {
+    max-width: 900px;
+    margin: var(--space-2xl) auto;
+  }
+
+  .trust-strip {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-md);
+    margin-top: var(--space-2xl);
+    padding-top: var(--space-xl);
+    border-top: var(--border-thin);
+  }
+
+  .trust-item {
+    text-align: center;
+    font-weight: 600;
+    padding: var(--space-md);
+    border: var(--border-thin);
+  }
+
+  @media (max-width: 640px) {
+    .hero-ctas {
+      flex-direction: column;
+    }
+
+    .trust-strip {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

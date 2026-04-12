@@ -1,0 +1,430 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import ProductSection from '../components/ProductSection.astro';
+import Button from '../components/Button.astro';
+---
+
+<BaseLayout title="Products" description="Complete line of precision gauges - standard and custom solutions for dimensional inspection">
+  <!-- Introduction -->
+  <Section>
+    <div class="products-intro">
+      <h1>Precision Gauge Products</h1>
+      <p class="lead">
+        From standard plug gauges to highly specialized custom solutions, Merc Technologies
+        manufactures precision gauges for dimensional inspection across all industries.
+        Every gauge is manufactured to exacting tolerances and 100% inspected.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Products Content -->
+  <Section>
+    <!-- Standard Gauges -->
+    <ProductSection title="Standard Plain Gauges">
+      <p class="mb-md">
+        Our standard plain gauge line covers the most common dimensional inspection needs.
+        All gauges manufactured to ASME B89.1.5 standards with Class X, XX, or XXX tolerances.
+      </p>
+      <div class="product-grid">
+        <div class="product-card card">
+          <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+          <h4>Plain Plug Gauges</h4>
+          <ul class="product-specs">
+            <li>Sizes: 0.059" to 12.000"</li>
+            <li>GO/NO-GO or progressive styles</li>
+            <li>Tool steel or carbide</li>
+            <li>Tolerance classes: X, XX, XXX</li>
+          </ul>
+        </div>
+        <div class="product-card card">
+          <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+          <h4>Plain Ring Gauges</h4>
+          <ul class="product-specs">
+            <li>Sizes: 0.059" to 12.000"</li>
+            <li>GO/NO-GO sets available</li>
+            <li>Chrome plated or carbide faced</li>
+            <li>Tolerance classes: X, XX, XXX</li>
+          </ul>
+        </div>
+        <div class="product-card card">
+          <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+          <h4>Snap Gauges</h4>
+          <ul class="product-specs">
+            <li>Sizes: 0.100" to 12.000"</li>
+            <li>Adjustable or fixed anvils</li>
+            <li>Carbide contact points</li>
+            <li>Progressive or GO/NO-GO</li>
+          </ul>
+        </div>
+      </div>
+    </ProductSection>
+
+    <!-- Thread Gauges -->
+    <ProductSection title="Thread Gauges">
+      <p class="mb-md">
+        Complete line of thread gauges for all common thread forms. Manufactured to exact
+        specifications with full certification documentation.
+      </p>
+      <div class="thread-info mb-lg">
+        <div class="thread-types">
+          <h4>Available Thread Forms</h4>
+          <ul>
+            <li>UN/UNF (Unified National)</li>
+            <li>UNJ (Unified National with controlled root radius)</li>
+            <li>Metric (ISO 68-1)</li>
+            <li>NPT/NPTF (National Pipe Thread)</li>
+            <li>ACME and Buttress</li>
+            <li>Custom thread forms</li>
+          </ul>
+        </div>
+        <div class="thread-specs">
+          <h4>Specifications</h4>
+          <ul>
+            <li>Tolerance classes: X, XX, XXX</li>
+            <li>Pitch diameters per ASME B1.2</li>
+            <li>Major/minor diameter control</li>
+            <li>Thread angle verification</li>
+            <li>GO/NO-GO sets or single gauges</li>
+            <li>Full dimensional reports available</li>
+          </ul>
+        </div>
+      </div>
+      <div class="product-grid">
+        <div class="product-card card">
+          <div class="image-placeholder image-placeholder-1-1 mb-md"></div>
+          <h4>Thread Plug Gauges</h4>
+          <p>Precision ground thread gauges for internal thread inspection</p>
+        </div>
+        <div class="product-card card">
+          <div class="image-placeholder image-placeholder-1-1 mb-md"></div>
+          <h4>Thread Ring Gauges</h4>
+          <p>External thread verification with full certification</p>
+        </div>
+      </div>
+    </ProductSection>
+
+    <!-- Carbide Gauges -->
+    <ProductSection title="Carbide Gauges">
+      <p class="mb-md">
+        For high-volume production environments, carbide gauges offer superior wear resistance
+        and extended service life. Our carbide gauges maintain accuracy through millions of
+        inspection cycles.
+      </p>
+      <div class="carbide-benefits card mb-lg">
+        <h4>Carbide Advantages</h4>
+        <ul class="benefits-list">
+          <li><strong>Extended Service Life:</strong> 10-20x longer than tool steel in high-volume applications</li>
+          <li><strong>Dimensional Stability:</strong> Minimal wear ensures consistent measurements over time</li>
+          <li><strong>Cost Effective:</strong> Lower cost-per-inspection in production environments</li>
+          <li><strong>Size Range:</strong> Available from 0.010" to 12.000" diameter</li>
+        </ul>
+      </div>
+      <div class="size-ranges">
+        <h4>Available Configurations</h4>
+        <div class="grid grid-3">
+          <div class="range-item card">
+            <h5>Carbide Plug Gauges</h5>
+            <p>Solid carbide or carbide-tipped in all standard sizes</p>
+          </div>
+          <div class="range-item card">
+            <h5>Carbide Ring Gauges</h5>
+            <p>Carbide measuring surface with steel body</p>
+          </div>
+          <div class="range-item card">
+            <h5>Carbide Snap Gauges</h5>
+            <p>Carbide anvils for maximum wear resistance</p>
+          </div>
+        </div>
+      </div>
+    </ProductSection>
+
+    <!-- Master Gauges -->
+    <ProductSection title="Master Gauges & Setting Standards">
+      <p class="mb-md">
+        Master gauges and setting standards for calibration, gauge verification, and
+        measurement system analysis. All masters include NIST-traceable calibration certificates.
+      </p>
+      <div class="product-grid">
+        <div class="product-card card">
+          <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+          <h4>Setting Masters</h4>
+          <p>
+            Precision cylindrical masters for setting snap gauges, comparators, and bore gauges.
+            Tolerance: ±0.000010" (±0.25 microns)
+          </p>
+        </div>
+        <div class="product-card card">
+          <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+          <h4>Calibration Standards</h4>
+          <p>
+            Reference standards for gauge calibration and verification per ISO 10012-1.
+            Full traceability documentation included.
+          </p>
+        </div>
+        <div class="product-card card">
+          <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+          <h4>Thread Setting Plugs</h4>
+          <p>
+            Master thread plugs for setting thread ring gauges and verification.
+            Class ZZZ tolerance for ultimate accuracy.
+          </p>
+        </div>
+      </div>
+    </ProductSection>
+
+    <!-- Special Gauges -->
+    <ProductSection title="Special Purpose Gauges">
+      <p class="mb-md">
+        Specialized gauge solutions for unique inspection requirements. Each designed for
+        specific applications where standard gauges aren't sufficient.
+      </p>
+      <div class="special-gauges-grid">
+        <div class="special-item">
+          <h4>Form Gauges</h4>
+          <p>Complex contour verification for profiles, radii, and irregular shapes</p>
+        </div>
+        <div class="special-item">
+          <h4>Fixture Gauges</h4>
+          <p>Multi-feature inspection gauges for simultaneous dimensional verification</p>
+        </div>
+        <div class="special-item">
+          <h4>Attribute Gauges</h4>
+          <p>GO/NO-GO gauges for multiple features with clear pass/fail indication</p>
+        </div>
+        <div class="special-item">
+          <h4>Taper Gauges</h4>
+          <p>Precision taper verification for Morse, Jacobs, and custom taper forms</p>
+        </div>
+        <div class="special-item">
+          <h4>Spline Gauges</h4>
+          <p>Internal and external spline gauges for involute and straight-sided splines</p>
+        </div>
+      </div>
+    </ProductSection>
+
+    <!-- Custom Gauges - Highlighted -->
+    <ProductSection title="Custom Gauge Design & Manufacturing" highlight>
+      <div class="custom-gauge-content">
+        <div class="custom-text">
+          <h3>Engineered for Your Application</h3>
+          <p class="mb-md">
+            When standard gauges won't work, our engineering team designs and manufactures custom
+            solutions tailored to your exact requirements. From concept through production, we
+            ensure your custom gauge delivers the accuracy and reliability you need.
+          </p>
+          <h4>Our Custom Gauge Process</h4>
+          <ol class="process-list">
+            <li>
+              <strong>Requirement Analysis</strong> - We review your prints, specifications, and
+              application to fully understand the inspection challenge.
+            </li>
+            <li>
+              <strong>Design Development</strong> - Our engineers create detailed gauge designs
+              with 3D models and GD&T specifications.
+            </li>
+            <li>
+              <strong>Design Review</strong> - We review the design with you to ensure it meets
+              all requirements before manufacturing begins.
+            </li>
+            <li>
+              <strong>Manufacturing</strong> - Precision machining and grinding to exacting tolerances
+              in our climate-controlled facility.
+            </li>
+            <li>
+              <strong>Inspection & Certification</strong> - Complete dimensional verification with
+              full documentation and traceability.
+            </li>
+          </ol>
+        </div>
+        <div class="custom-image">
+          <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
+          <div class="image-placeholder image-placeholder-4-3"></div>
+        </div>
+      </div>
+
+      <div class="custom-capabilities mt-xl">
+        <h4>Custom Gauge Capabilities</h4>
+        <div class="grid grid-2">
+          <div class="capability-card card">
+            <h5>Complex Geometries</h5>
+            <p>Multi-axis CNC machining for intricate forms and features</p>
+          </div>
+          <div class="capability-card card">
+            <h5>Material Selection</h5>
+            <p>Tool steel, carbide, ceramics, or specialized alloys</p>
+          </div>
+          <div class="capability-card card">
+            <h5>Tight Tolerances</h5>
+            <p>Routinely hold ±0.000020" (±0.5 microns) or better</p>
+          </div>
+          <div class="capability-card card">
+            <h5>Reverse Engineering</h5>
+            <p>Recreate existing gauges or improve upon current designs</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="custom-cta mt-lg">
+        <Button href="/contact" large>Discuss Your Custom Gauge Project</Button>
+      </div>
+    </ProductSection>
+  </Section>
+
+  <!-- Final CTA -->
+  <Section className="products-cta">
+    <div class="cta-box">
+      <h2>Need Help Selecting the Right Gauge?</h2>
+      <p class="mb-lg">
+        Our application engineers are available to help you choose the optimal gauge solution
+        for your specific requirements. Contact us for technical assistance or a quote.
+      </p>
+      <div class="cta-buttons">
+        <Button href="/contact" large>Request Quote</Button>
+        <Button href="/about" large>Learn More About Us</Button>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .products-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+
+  .product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .product-card h4 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .product-specs {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .product-specs li {
+    margin-bottom: var(--space-xs);
+  }
+
+  .thread-info {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-lg);
+  }
+
+  .thread-types ul,
+  .thread-specs ul {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .benefits-list {
+    margin: 0;
+    padding-left: var(--space-md);
+  }
+
+  .benefits-list li {
+    margin-bottom: var(--space-md);
+  }
+
+  .size-ranges h4 {
+    margin-bottom: var(--space-md);
+  }
+
+  .range-item h5 {
+    font-size: var(--font-size-h4);
+    margin-bottom: var(--space-sm);
+  }
+
+  .range-item p {
+    margin-bottom: 0;
+  }
+
+  .special-gauges-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-md);
+  }
+
+  .special-item {
+    padding: var(--space-lg);
+    border: var(--border-thin);
+  }
+
+  .special-item h4 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .special-item p {
+    margin-bottom: 0;
+  }
+
+  .custom-gauge-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-xl);
+  }
+
+  .process-list {
+    margin-bottom: var(--space-lg);
+  }
+
+  .process-list li {
+    margin-bottom: var(--space-md);
+  }
+
+  .custom-capabilities h4 {
+    margin-bottom: var(--space-md);
+  }
+
+  .capability-card h5 {
+    font-size: 18px;
+    margin-bottom: var(--space-sm);
+  }
+
+  .capability-card p {
+    margin-bottom: 0;
+  }
+
+  .custom-cta {
+    text-align: center;
+  }
+
+  .cta-box {
+    max-width: 700px;
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-2xl);
+    border: var(--border-thick);
+  }
+
+  .cta-buttons {
+    display: flex;
+    gap: var(--space-md);
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  @media (max-width: 640px) {
+    .cta-buttons {
+      flex-direction: column;
+    }
+
+    .thread-info {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

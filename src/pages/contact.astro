@@ -1,0 +1,289 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Section from '../components/Section.astro';
+import ContactForm from '../components/ContactForm.astro';
+---
+
+<BaseLayout title="Contact" description="Contact Merc Technologies for precision gauge quotes, technical support, and custom gauge inquiries">
+  <!-- Contact Header -->
+  <Section>
+    <div class="contact-intro">
+      <h1>Contact Merc Technologies</h1>
+      <p class="lead">
+        Our team is ready to help with gauge selection, custom solutions, quotes, and technical support.
+        Reach out via the form below or contact us directly.
+      </p>
+    </div>
+  </Section>
+
+  <!-- Contact Information & Form -->
+  <Section>
+    <div class="contact-grid">
+      <!-- Contact Methods -->
+      <div class="contact-info">
+        <h2>Get in Touch</h2>
+
+        <div class="contact-method">
+          <h3>Phone</h3>
+          <p class="contact-detail">+1 (555) 123-4567</p>
+          <p class="text-small">Monday - Friday: 8:00 AM - 5:00 PM EST</p>
+        </div>
+
+        <div class="contact-method">
+          <h3>Email</h3>
+          <p class="contact-detail">info@merctechnologies.com</p>
+          <p class="text-small">We respond to all inquiries within 24 hours</p>
+        </div>
+
+        <div class="contact-method">
+          <h3>Address</h3>
+          <p class="contact-detail">
+            Merc Technologies<br />
+            1234 Precision Drive<br />
+            Manufacturing City, ST 12345<br />
+            United States
+          </p>
+        </div>
+
+        <div class="contact-method">
+          <h3>Hours</h3>
+          <p class="contact-detail">
+            Monday - Friday: 8:00 AM - 5:00 PM EST<br />
+            Saturday - Sunday: Closed
+          </p>
+        </div>
+
+        <div class="facility-image mt-lg">
+          <div class="image-placeholder image-placeholder-4-3"></div>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="form-section">
+        <h2>Send Us Your Requirement</h2>
+        <p class="mb-lg">
+          Fill out the form below with your gauge requirements. For custom gauges, please attach
+          your drawings or specifications (PDF, DWG, or DXF format).
+        </p>
+        <ContactForm />
+      </div>
+    </div>
+  </Section>
+
+  <!-- What to Expect -->
+  <Section className="expectations-section">
+    <h2 class="text-center mb-lg">What to Expect</h2>
+    <div class="grid grid-3">
+      <div class="expectation-card card">
+        <div class="step-number">1</div>
+        <h3>Quick Response</h3>
+        <p>
+          We review all inquiries within 4 business hours. For standard gauges, you'll receive
+          a quote same-day. Custom gauges typically quoted within 48 hours.
+        </p>
+      </div>
+      <div class="expectation-card card">
+        <div class="step-number">2</div>
+        <h3>Technical Review</h3>
+        <p>
+          Our application engineers review your requirements and may reach out with questions
+          or suggestions to ensure the optimal gauge solution.
+        </p>
+      </div>
+      <div class="expectation-card card">
+        <div class="step-number">3</div>
+        <h3>Detailed Quote</h3>
+        <p>
+          You'll receive a comprehensive quote including specifications, lead time, pricing,
+          and any technical recommendations for your application.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- FAQ Section -->
+  <Section>
+    <h2 class="text-center mb-lg">Common Questions</h2>
+    <div class="faq-list">
+      <div class="faq-item">
+        <h4>What information do you need for a custom gauge quote?</h4>
+        <p>
+          For the most accurate quote, please provide: part drawing or specification, material
+          requirements, tolerance class needed, quantity required, and any special inspection
+          or certification requirements. The more detail you provide, the better we can serve you.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h4>What are your typical lead times?</h4>
+        <p>
+          Standard gauges from our catalog ship in 5-7 business days. Custom gauges typically
+          take 3-4 weeks depending on complexity. Rush services available for critical needs.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h4>Do you provide calibration services?</h4>
+        <p>
+          Yes, we offer NIST-traceable calibration services for all gauge types, including
+          gauges manufactured by other companies. Calibration certificates included with all
+          services. Contact us for calibration-only inquiries.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h4>Can you help with gauge selection?</h4>
+        <p>
+          Absolutely. Our application engineers are available to discuss your inspection needs
+          and recommend the best gauge solution. We'll consider factors like tolerance requirements,
+          production volume, part material, and your quality system requirements.
+        </p>
+      </div>
+      <div class="faq-item">
+        <h4>What file formats do you accept for drawings?</h4>
+        <p>
+          We accept PDF, DWG, DXF, STEP, and IGES formats. If you have a different format,
+          contact us and we'll work with you to get the information we need.
+        </p>
+      </div>
+    </div>
+  </Section>
+
+  <!-- Service Areas -->
+  <Section className="service-areas">
+    <h2 class="text-center mb-lg">We Serve Customers Nationwide</h2>
+    <p class="text-center mb-lg" style="max-width: 700px; margin-left: auto; margin-right: auto;">
+      While our facility is located in Manufacturing City, we ship precision gauges to customers
+      across the United States and internationally. Our quality and service know no geographic bounds.
+    </p>
+    <div class="service-features grid grid-3">
+      <div class="service-feature card">
+        <h4>Nationwide Shipping</h4>
+        <p>Fast, insured shipping to all 50 states with tracking</p>
+      </div>
+      <div class="service-feature card">
+        <h4>International Export</h4>
+        <p>Full export documentation and international shipping available</p>
+      </div>
+      <div class="service-feature card">
+        <h4>Local Pickup</h4>
+        <p>Pickup available at our facility by appointment</p>
+      </div>
+    </div>
+  </Section>
+</BaseLayout>
+
+<style>
+  .contact-intro {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .lead {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 0;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: var(--space-2xl);
+  }
+
+  .contact-info h2,
+  .form-section h2 {
+    margin-bottom: var(--space-lg);
+  }
+
+  .contact-method {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: var(--border-thin);
+  }
+
+  .contact-method:last-of-type {
+    border-bottom: none;
+  }
+
+  .contact-method h3 {
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-h4);
+  }
+
+  .contact-detail {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: var(--space-xs);
+    line-height: 1.6;
+  }
+
+  .expectations-section {
+    background-color: var(--color-white);
+    border-top: var(--border-thick);
+    border-bottom: var(--border-thick);
+  }
+
+  .expectation-card {
+    text-align: center;
+  }
+
+  .step-number {
+    width: 50px;
+    height: 50px;
+    background-color: var(--color-black);
+    color: var(--color-white);
+    font-size: 24px;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-md);
+    border-radius: 50%;
+  }
+
+  .expectation-card h3 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .expectation-card p {
+    margin-bottom: 0;
+  }
+
+  .faq-list {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .faq-item {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: var(--border-thin);
+  }
+
+  .faq-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+  }
+
+  .faq-item h4 {
+    margin-bottom: var(--space-md);
+  }
+
+  .faq-item p {
+    margin-bottom: 0;
+  }
+
+  .service-feature h4 {
+    margin-bottom: var(--space-sm);
+  }
+
+  .service-feature p {
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 768px) {
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

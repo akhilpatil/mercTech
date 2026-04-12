@@ -1,0 +1,34 @@
+---
+interface Props {
+  title: string;
+  highlight?: boolean;
+}
+
+const { title, highlight = false } = Astro.props;
+---
+
+<div class={highlight ? 'product-section highlight' : 'product-section'}>
+  <h3>{title}</h3>
+  <slot />
+</div>
+
+<style>
+  .product-section {
+    margin-bottom: var(--space-xl);
+    padding-bottom: var(--space-xl);
+    border-bottom: var(--border-thin);
+  }
+
+  .product-section:last-child {
+    border-bottom: none;
+  }
+
+  .product-section h3 {
+    margin-bottom: var(--space-md);
+  }
+
+  .product-section.highlight {
+    border: var(--border-thick);
+    padding: var(--space-lg);
+  }
+</style>
