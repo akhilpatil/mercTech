@@ -1,0 +1,15 @@
+---
+import DarkHome from '../../components/DarkHome.astro';
+import { locales, type Locale } from '../../i18n';
+
+export function getStaticPaths() {
+  return locales.filter((locale) => locale !== 'en').map((locale) => ({
+    params: { lang: locale },
+    props: { locale },
+  }));
+}
+
+const { locale } = Astro.props as { locale: Locale };
+---
+
+<DarkHome locale={locale} />

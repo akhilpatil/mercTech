@@ -1,19 +1,35 @@
 ---
-const currentPath = Astro.url.pathname;
+import {
+  getContent,
+  getLocalePath,
+  localeLabels,
+  locales,
+  type Locale,
+  type PageKey,
+} from '../i18n';
+
+interface Props {
+  locale?: Locale;
+  pageKey?: PageKey;
+}
+
+const { locale = 'en', pageKey = 'home' } = Astro.props;
+const t = getContent(locale);
 
 const navItems = [
-  { href: '/', label: 'Home' },
-  { href: '/products', label: 'Products' },
-  { href: '/about', label: 'About' },
-  { href: '/contact', label: 'Contact' }
-];
+  { page: 'home', label: t.nav.home },
+  { page: 'products', label: t.nav.products },
+  { page: 'about', label: t.nav.about },
+  { page: 'careers', label: t.nav.careers },
+  { page: 'contact', label: t.nav.contact },
+] satisfies { page: PageKey; label: string }[];
 ---
 
 <nav class="snav">
   <div class="container">
     <div class="snav-content">
       <div class="snav-logo">
-        <a href="/">MERC TECHNOLOGIES</a>
+        <a href={getLocalePath(locale)}>MERC TECHNOLOGIES</a>
       </div>
 
       <button class="snav-hamburger" aria-label="Toggle menu" aria-expanded="false">
@@ -26,14 +42,25 @@ const navItems = [
         {navItems.map(item => (
           <li>
             <a
-              href={item.href}
-              class:list={['snav-link', { active: currentPath === item.href }]}
+              href={getLocalePath(locale, item.page)}
+              class:list={['snav-link', { active: pageKey === item.page }]}
             >
               {item.label}
             </a>
           </li>
         ))}
       </ul>
+
+      <div class="snav-language">
+        <label for="language-select">{t.language}</label>
+        <select id="language-select" aria-label={t.language}>
+          {locales.map((lang) => (
+            <option value={getLocalePath(lang, pageKey)} selected={lang === locale}>
+              {localeLabels[lang]}
+            </option>
+          ))}
+        </select>
+      </div>
     </div>
   </div>
 </nav>
@@ -59,6 +86,14 @@ const navItems = [
       });
     });
   }
+
+  const languageSelect = document.querySelector('#language-select');
+
+  if (languageSelect instanceof HTMLSelectElement) {
+    languageSelect.addEventListener('change', () => {
+      window.location.href = languageSelect.value;
+    });
+  }
 </script>
 
 <style>
@@ -74,6 +109,7 @@ const navItems = [
     display: flex;
     justify-content: space-between;
     align-items: center;
+    gap: var(--space-md);
     padding: var(--space-md) 0;
     position: relative;
   }
@@ -125,6 +161,30 @@ const navItems = [
     padding: 0;
   }
 
+  .snav-language {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: #f7f7f4;
+    margin-left: auto;
+  }
+
+  .snav-language label {
+    margin: 0;
+    font-size: 13px;
+    font-weight: 700;
+  }
+
+  .snav-language select {
+    width: auto;
+    min-width: 120px;
+    border: 1px solid rgba(255,255,255,0.55);
+    background: #15171c;
+    color: #f7f7f4;
+    padding: 8px 28px 8px 10px;
+    font-size: 13px;
+  }
+
   .snav-link {
     color: #f7f7f4;
     padding: 8px 16px;
@@ -140,11 +200,22 @@ const navItems = [
   }
 
   @media (max-width: 768px) {
+    .snav-content {
+      flex-wrap: wrap;
+    }
+
     .snav-hamburger {
       display: flex;
+      order: 3;
+    }
+
+    .snav-language {
+      order: 2;
+      margin-left: 0;
     }
 
     .snav-links {
+      order: 4;
       position: absolute;
       top: 100%;
       left: 0;
@@ -179,6 +250,20 @@ const navItems = [
       display: block;
       width: 100%;
       padding: var(--space-md) var(--space-md);
+    }
+  }
+
+  @media (max-width: 520px) {
+    .snav-logo a {
+      font-size: 16px;
+    }
+
+    .snav-language label {
+      display: none;
+    }
+
+    .snav-language select {
+      min-width: 104px;
     }
   }
 </style>

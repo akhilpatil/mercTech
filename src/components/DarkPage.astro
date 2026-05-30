@@ -1,0 +1,560 @@
+---
+import StyleDarkLayout from '../layouts/StyleDarkLayout.astro';
+import ContactMethod from './ContactMethod.astro';
+import DarkCta from './DarkCta.astro';
+import { getContent, getLocalePath, type Locale, type PageKey } from '../i18n';
+
+interface Props {
+  locale?: Locale;
+  pageKey: Exclude<PageKey, 'home'>;
+}
+
+const { locale = 'en', pageKey } = Astro.props;
+const t = getContent(locale);
+const page = t[pageKey];
+---
+
+<StyleDarkLayout title={page.title} description={page.description} locale={locale} pageKey={pageKey}>
+  <section class="dark-hero">
+    <div class="container dark-hero-grid">
+      <div>
+        <p class="eyebrow">Merc Technologies</p>
+        <h1>{page.h1}</h1>
+        <p class="lead">{page.lead}</p>
+      </div>
+      <div class="hero-object" aria-hidden="true"></div>
+    </div>
+  </section>
+
+  {pageKey === 'about' && (
+    <>
+      <section class="dark-band">
+        <div class="container split">
+          <div class="media-panel" aria-hidden="true"></div>
+          <div>
+            <h2>{t.about.storyTitle}</h2>
+            {t.about.story.map((paragraph) => <p>{paragraph}</p>)}
+          </div>
+        </div>
+      </section>
+      <section class="dark-section light">
+        <div class="container split">
+          <div class="facility-stack" aria-hidden="true">
+            <div class="page-placeholder wide"></div>
+            <div class="page-placeholder wide"></div>
+          </div>
+          <div>
+            <h2>{t.about.capabilityTitle}</h2>
+            <div class="capability-list">
+              {t.about.capabilities.map(([title, description]) => (
+                <article>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+      <section class="dark-section">
+        <div class="container">
+          <h2>{t.about.philosophyTitle}</h2>
+          <div class="card-grid">
+            {t.about.philosophy.map(([title, description]) => (
+              <article>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section class="dark-section light">
+        <div class="container">
+          <div class="narrow">
+            <h2>{t.about.visionTitle}</h2>
+            <p>{t.about.visionText}</p>
+          </div>
+          <div class="card-grid vision-grid">
+            {t.about.vision.map(([title, description], index) => (
+              <article>
+                <div class:list={['cert-placeholder', `ph-${(index % 3) + 1}`]} aria-hidden="true"></div>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section class="dark-section light">
+        <div class="container">
+          <h2>{t.about.certTitle}</h2>
+          <div class="cert-grid">
+            {t.about.certs.map((item, index) => (
+              <article>
+                <div class:list={['cert-placeholder', `ph-${(index % 3) + 1}`]} aria-hidden="true"></div>
+                <p>{item}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <DarkCta title={t.about.ctaTitle} text={t.about.ctaText} primary={t.common.getInTouch} secondary={t.common.viewProducts} primaryHref={getLocalePath(locale, 'contact')} secondaryHref={getLocalePath(locale, 'products')} />
+    </>
+  )}
+
+  {pageKey === 'products' && (
+    <>
+      <section class="dark-section light">
+        <div class="container product-stack">
+          {t.products.groups.map(([title, description, items], groupIndex) => (
+            <section class="product-group">
+              <div class="product-group-head">
+                <h2>{title}</h2>
+                <p>{description}</p>
+              </div>
+              <div class:list={['product-card-grid', { compact: items.length > 3 }]}>
+                {items.map(([name, specs], itemIndex) => (
+                  <article class="product-card">
+                    <div class:list={['page-placeholder', `ph-${((groupIndex + itemIndex) % 3) + 1}`]} aria-hidden="true"></div>
+                    <h3>{name}</h3>
+                    {specs.length > 0 && (
+                      <ul>
+                        {specs.map((spec) => <li>{spec}</li>)}
+                      </ul>
+                    )}
+                  </article>
+                ))}
+              </div>
+            </section>
+          ))}
+        </div>
+      </section>
+      <DarkCta title={t.products.ctaTitle} text={t.products.ctaText} primary={t.common.requestQuote} secondary={t.common.learnMore} primaryHref={getLocalePath(locale, 'contact')} secondaryHref={getLocalePath(locale, 'about')} />
+    </>
+  )}
+
+  {pageKey === 'contact' && (
+    <>
+      <section class="dark-section light">
+        <div class="container contact-grid">
+          <div>
+            <h2>{t.common.getInTouch}</h2>
+            <ContactMethod title={t.contact.methods.phone} body={'+91 9845765081\n+91 9845538144'} />
+            <ContactMethod title={t.contact.methods.email} body="merctech03@yahoo.co.in" />
+            <ContactMethod title={t.contact.methods.address} body={'Merc Technologies\n143, 4th Phase,\nBommasandra Industrial area,\nBangalore 560 099.'} />
+            <ContactMethod title={t.contact.methods.hours} body={t.contact.methods.hoursValue} />
+            <div class="page-placeholder contact-placeholder" aria-hidden="true"></div>
+          </div>
+          <div class="form-shell">
+            <h2>{t.contact.formTitle}</h2>
+            <p>{t.contact.formText}</p>
+            <form class="dark-form">
+              <label>{t.contact.formLabels.name}<input type="text" name="name" required /></label>
+              <label>{t.contact.formLabels.company}<input type="text" name="company" required /></label>
+              <label>{t.contact.formLabels.email}<input type="email" name="email" required /></label>
+              <label>{t.contact.formLabels.phone}<input type="tel" name="phone" /></label>
+              <label>{t.contact.formLabels.requirement}<textarea name="requirement" rows="6" required></textarea></label>
+              <label>{t.contact.formLabels.drawing}<input type="file" name="drawing" accept=".pdf,.dwg,.dxf" /></label>
+              <button type="submit">{t.common.requestQuote}</button>
+            </form>
+          </div>
+        </div>
+      </section>
+      <section class="dark-section">
+        <div class="container">
+          <h2>{t.contact.expectTitle}</h2>
+          <div class="card-grid">
+            {t.contact.expect.map(([title, description]) => (
+              <article>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section class="dark-section light">
+        <div class="container narrow">
+          <h2>{t.contact.serviceTitle}</h2>
+          <p>{t.contact.serviceText}</p>
+          <div class="card-grid service-feature-grid">
+            {t.contact.serviceFeatures.map(([title, description]) => (
+              <article>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section class="dark-section">
+        <div class="container">
+          <h2>{t.contact.faqTitle}</h2>
+          <div class="faq-list">
+            {t.contact.faq.map(([question, answer]) => (
+              <article>
+                <h3>{question}</h3>
+                <p>{answer}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    </>
+  )}
+
+  {pageKey === 'careers' && (
+    <>
+      <section class="dark-section light">
+        <div class="container">
+          <h2>{t.careers.areasTitle}</h2>
+          <div class="card-grid dark-cards">
+            {t.careers.areas.map(([title, description]) => (
+              <article>
+                <h3>{title}</h3>
+                <p>{description}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+      <section class="dark-section">
+        <div class="container split">
+          <div>
+            <h2>{t.careers.cultureTitle}</h2>
+            <ul class="value-list">
+              {t.careers.values.map((value) => <li>{value}</li>)}
+            </ul>
+          </div>
+          <div class="media-panel" aria-hidden="true"></div>
+        </div>
+      </section>
+      <DarkCta title={t.careers.ctaTitle} text={t.careers.ctaText} primary={t.careers.cta} secondary={t.nav.about} primaryHref={getLocalePath(locale, 'contact')} secondaryHref={getLocalePath(locale, 'about')} />
+    </>
+  )}
+</StyleDarkLayout>
+
+<style define:vars={{}}>
+  :global(body) {
+    background: #0e0f12;
+    color: #f7f7f4;
+  }
+
+  .dark-hero {
+    background:
+      radial-gradient(80% 120% at 78% 16%, rgba(213,0,28,0.22), transparent 44%),
+      linear-gradient(115deg, #303741 0%, #15171c 48%, #090a0c 100%);
+    color: #fff;
+    padding: clamp(80px, 10vw, 130px) 0;
+    overflow: hidden;
+  }
+
+  .dark-hero-grid,
+  .split,
+  .contact-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(280px, 0.95fr);
+    gap: clamp(30px, 6vw, 72px);
+    align-items: center;
+  }
+
+  .eyebrow {
+    color: #d5001c;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 13px;
+  }
+
+  h1 {
+    color: #fff;
+    font-size: clamp(38px, 5vw, 62px);
+    line-height: 1.04;
+    margin-bottom: 20px;
+  }
+
+  h2 {
+    font-size: clamp(28px, 3.4vw, 42px);
+    margin-bottom: 26px;
+  }
+
+  .lead {
+    color: #e4e4dd;
+    max-width: 720px;
+    font-size: 19px;
+    line-height: 1.7;
+  }
+
+  .hero-object,
+  .media-panel,
+  .page-placeholder,
+  .cert-placeholder {
+    min-height: 300px;
+    border-radius: 8px;
+    background:
+      linear-gradient(180deg, transparent 10%, rgba(0,0,0,0.7)),
+      radial-gradient(circle at 60% 40%, rgba(213,0,28,0.4), transparent 30%),
+      linear-gradient(135deg, #6f7479, #14161a);
+    box-shadow: 0 24px 70px rgba(0,0,0,0.35);
+  }
+
+  .hero-object {
+    min-height: 240px;
+    border-radius: 999px;
+    transform: rotate(-7deg);
+  }
+
+  .page-placeholder {
+    min-height: 220px;
+    width: 100%;
+    box-shadow: none;
+  }
+
+  .page-placeholder.wide {
+    min-height: 190px;
+  }
+
+  .ph-1 { background: linear-gradient(135deg, #6f7479, #14161a); }
+  .ph-2 { background: linear-gradient(135deg, #8aa0c4, #1c2733); }
+  .ph-3 { background: linear-gradient(135deg, #d5001c, #2a0e12); }
+
+  .facility-stack {
+    display: grid;
+    gap: 18px;
+  }
+
+  .dark-band,
+  .dark-section {
+    background: #0e0f12;
+    color: #f7f7f4;
+    padding: 80px 0;
+  }
+
+  .dark-section.light {
+    background: #f7f7f4;
+    color: #0e0f12;
+  }
+
+  .dark-section.light h2,
+  .dark-section.light h3,
+  .dark-section.light p,
+  .dark-section.light li {
+    color: #0e0f12;
+  }
+
+  .dark-section p,
+  .dark-band p {
+    color: #c9c9c3;
+    line-height: 1.7;
+  }
+
+  .card-grid,
+  .info-grid,
+  .cert-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .card-grid article,
+  .info-grid article,
+  .cert-grid article,
+  .product-card,
+  .form-shell {
+    border-radius: 8px;
+    padding: 26px;
+    background: #15171c;
+    color: #f7f7f4;
+    border: 1px solid rgba(255,255,255,0.12);
+  }
+
+  .light .card-grid article,
+  .light .info-grid article,
+  .light .cert-grid article,
+  .product-card,
+  .form-shell {
+    background: #fff;
+    color: #0e0f12;
+    border: 1px solid rgba(14,15,18,0.14);
+    box-shadow: 0 10px 26px rgba(0,0,0,0.08);
+  }
+
+  .card-grid h3 {
+    color: inherit;
+    margin-bottom: 10px;
+  }
+
+  .capability-list {
+    display: grid;
+    gap: 22px;
+  }
+
+  .capability-list article {
+    border-top: 1px solid rgba(14,15,18,0.16);
+    padding-top: 18px;
+  }
+
+  .capability-list h3,
+  .product-card h3 {
+    font-size: 22px;
+    margin-bottom: 12px;
+  }
+
+  .cert-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+  .cert-grid article {
+    text-align: center;
+  }
+
+  .cert-placeholder {
+    width: 84px;
+    min-height: 84px;
+    height: 84px;
+    margin: 0 auto 18px;
+  }
+
+  .product-stack {
+    display: grid;
+    gap: 48px;
+  }
+
+  .product-group-head {
+    max-width: 840px;
+    margin-bottom: 22px;
+  }
+
+  .product-card-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+  }
+
+  .product-card-grid.compact {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .product-card .page-placeholder {
+    min-height: 190px;
+    margin-bottom: 22px;
+  }
+
+  .product-card ul,
+  .value-list {
+    margin: 0;
+    padding-left: 20px;
+  }
+
+  .product-card li {
+    margin-bottom: 10px;
+  }
+
+  .contact-placeholder {
+    margin-top: 28px;
+  }
+
+  .contact-grid {
+    align-items: start;
+  }
+
+  .dark-form {
+    display: grid;
+    gap: 16px;
+  }
+
+  .dark-form label {
+    color: #0e0f12;
+    font-weight: 700;
+  }
+
+  .dark-form input,
+  .dark-form textarea {
+    margin-top: 8px;
+    border: 1px solid rgba(14,15,18,0.28);
+    border-radius: 4px;
+  }
+
+  .dark-form button {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 24px;
+    border: 1px solid currentColor;
+    color: inherit;
+    background: transparent;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .dark-form button {
+    background: #d5001c;
+    border-color: #d5001c;
+    color: #fff;
+  }
+
+  .narrow {
+    max-width: 780px;
+    text-align: center;
+  }
+
+  .vision-grid,
+  .service-feature-grid {
+    margin-top: 28px;
+  }
+
+  .faq-list {
+    display: grid;
+    gap: 0;
+    max-width: 920px;
+  }
+
+  .faq-list article {
+    border-top: 1px solid rgba(255,255,255,0.16);
+    padding: 26px 0;
+  }
+
+  .faq-list article:last-child {
+    border-bottom: 1px solid rgba(255,255,255,0.16);
+  }
+
+  .faq-list h3 {
+    color: #fff;
+    margin-bottom: 10px;
+  }
+
+  @media (max-width: 900px) {
+    .dark-hero-grid,
+    .split,
+    .contact-grid,
+    .product-card-grid,
+    .product-card-grid.compact {
+      grid-template-columns: 1fr;
+    }
+
+    .card-grid,
+    .info-grid,
+    .cert-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .dark-band,
+    .dark-section,
+    .dark-band,
+    .dark-section {
+      padding: 56px 0;
+    }
+
+    .card-grid,
+    .info-grid,
+    .cert-grid {
+      grid-template-columns: 1fr;
+    }
+
+  }
+</style>

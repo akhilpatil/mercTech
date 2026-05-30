@@ -1,7 +1,29 @@
 ---
-import TemporaryPageNav from './TemporaryPageNav.astro';
+import {
+  getContent,
+  getLocalePath,
+  localeLabels,
+  locales,
+  type Locale,
+  type PageKey,
+} from '../i18n';
 
+interface Props {
+  locale?: Locale;
+  pageKey?: PageKey;
+}
+
+const { locale = 'en', pageKey = 'home' } = Astro.props;
 const currentYear = new Date().getFullYear();
+const t = getContent(locale);
+
+const quickLinks = [
+  ['home', t.nav.home],
+  ['about', t.nav.about],
+  ['products', t.nav.products],
+  ['careers', t.nav.careers],
+  ['contact', t.nav.contact],
+] as [PageKey, string][];
 ---
 
 <footer class="sfooter">
@@ -9,31 +31,36 @@ const currentYear = new Date().getFullYear();
     <div class="sfooter-content">
       <div class="sfooter-section">
         <h4>Merc Technologies</h4>
-        <p>Precision Gauge Manufacturing</p>
-        <p class="sfooter-small">Since 2003</p>
+        <p>{t.footer.tagline}</p>
+        <p class="sfooter-small">{t.footer.since}</p>
       </div>
 
       <div class="sfooter-section">
-        <h4>Contact</h4>
+        <h4>{t.footer.contact}</h4>
         <p>Email: merctech03@yahoo.co.in</p>
         <p>Phone: +91 9845765081</p>
         <p>Phone: +91 9845538144</p>
       </div>
 
       <div class="sfooter-section">
-        <h4>Quick Links</h4>
+        <h4>{t.footer.quickLinks}</h4>
         <ul class="sfooter-links">
-          <li><a href="/">Home</a></li>
-          <li><a href="/about">About</a></li>
-          <li><a href="/products">Products</a></li>
-          <li><a href="/contact">Contact</a></li>
+          {quickLinks.map(([page, label]) => (
+            <li><a href={getLocalePath(locale, page)}>{label}</a></li>
+          ))}
         </ul>
       </div>
     </div>
 
     <div class="sfooter-bottom">
-      <TemporaryPageNav tone="dark" />
-      <p class="sfooter-small">© {currentYear} Merc Technologies. All rights reserved.</p>
+      <div class="sfooter-languages" aria-label={t.language}>
+        {locales.map((lang) => (
+          <a class:list={{ active: lang === locale }} href={getLocalePath(lang, pageKey)}>
+            {localeLabels[lang]}
+          </a>
+        ))}
+      </div>
+      <p class="sfooter-small">© {currentYear} Merc Technologies. {t.footer.rights}</p>
     </div>
   </div>
 </footer>
@@ -89,6 +116,28 @@ const currentYear = new Date().getFullYear();
     padding-top: var(--space-lg);
     border-top: 1px solid rgba(255, 255, 255, 0.16);
     text-align: center;
+  }
+
+  .sfooter-languages {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px 16px;
+    margin-bottom: var(--space-md);
+  }
+
+  .sfooter-languages a {
+    color: #f7f7f4;
+    font-size: 14px;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    opacity: 0.78;
+  }
+
+  .sfooter-languages a.active {
+    opacity: 1;
+    font-weight: 800;
+    text-decoration: none;
   }
 
   @media (max-width: 640px) {

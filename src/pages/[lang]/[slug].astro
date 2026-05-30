@@ -1,0 +1,30 @@
+---
+import DarkPage from '../../components/DarkPage.astro';
+import {
+  getPageKeyFromSlug,
+  locales,
+  pageSlugs,
+  type Locale,
+  type PageKey,
+} from '../../i18n';
+
+type ContentPage = Exclude<PageKey, 'home'>;
+
+export function getStaticPaths() {
+  return locales
+    .filter((locale) => locale !== 'en')
+    .flatMap((locale) => {
+      const entries = Object.entries(pageSlugs[locale]) as [PageKey, string][];
+      return entries
+        .filter(([page, slug]) => page !== 'home' && slug)
+        .map(([page, slug]) => ({
+          params: { lang: locale, slug },
+          props: { locale, pageKey: page as ContentPage },
+        }));
+    });
+}
+
+const { locale, pageKey } = Astro.props as { locale: Locale; pageKey: ContentPage };
+---
+
+<DarkPage locale={locale} pageKey={pageKey} />

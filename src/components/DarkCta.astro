@@ -1,0 +1,77 @@
+---
+interface Props {
+  title: string;
+  text: string;
+  primary: string;
+  secondary: string;
+  primaryHref: string;
+  secondaryHref: string;
+}
+
+const { title, text, primary, secondary, primaryHref, secondaryHref } = Astro.props;
+---
+
+<section class="cta">
+  <div class="container">
+    <h2>{title}</h2>
+    <p>{text}</p>
+    <div class="cta-actions">
+      <a class="primary" href={primaryHref}>{primary}</a>
+      <a href={secondaryHref}>{secondary}</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .cta {
+    background: #15171c;
+    padding: 90px 0;
+    color: #fff;
+    text-align: center;
+  }
+
+  .cta h2 {
+    color: #fff;
+  }
+
+  .cta p {
+    color: #c9c9c3;
+    max-width: 720px;
+    margin: 0 auto 28px;
+  }
+
+  .cta-actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .cta-actions a {
+    min-height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 11px 24px;
+    border: 1px solid currentColor;
+    color: #fff;
+    background: transparent;
+    font-weight: 800;
+    text-decoration: none;
+  }
+
+  .cta-actions a.primary {
+    background: #d5001c;
+    border-color: #d5001c;
+  }
+
+  @media (max-width: 640px) {
+    .cta {
+      padding: 56px 0;
+    }
+
+    .cta-actions {
+      flex-direction: column;
+    }
+  }
+</style>
