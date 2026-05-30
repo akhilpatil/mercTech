@@ -1,0 +1,373 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout title="Style 1" description="Merc Technologies homepage concept in a global manufacturing corporate style">
+  <section class="s1-hero">
+    <div class="container s1-hero-grid">
+      <div class="s1-copy">
+        <p class="s1-kicker">Precision gauge manufacturing</p>
+        <h1>Engineering confidence across every measured part.</h1>
+        <p>
+          Merc Technologies builds standard and custom gauges for production teams that need repeatable
+          accuracy, practical support, and dependable delivery.
+        </p>
+        <div class="s1-actions">
+          <a class="s1-button s1-primary" href="/contact">Request quote</a>
+          <a class="s1-button" href="/products">Explore products</a>
+        </div>
+      </div>
+      <div class="s1-visual" aria-label="Factory inspection placeholder">
+        <div class="s1-visual-panel"></div>
+        <div class="s1-visual-card">
+          <strong>ISO 9001:2015</strong>
+          <span>Certified quality processes</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s1-band">
+    <div class="container s1-stat-grid">
+      <div><strong>20+</strong><span>Years of manufacturing experience</span></div>
+      <div><strong>5-7</strong><span>Days for standard gauge dispatch</span></div>
+      <div><strong>100%</strong><span>Inspection and traceability focus</span></div>
+      <div><strong>Custom</strong><span>Gauge design and reverse engineering</span></div>
+    </div>
+  </section>
+
+  <section class="s1-section">
+    <div class="container">
+      <div class="s1-heading-row">
+        <p class="s1-kicker">What we do</p>
+        <h2>Solutions for high-volume and special-purpose inspection.</h2>
+      </div>
+      <div class="s1-card-grid">
+        <article class="s1-card">
+          <span>01</span>
+          <h3>Standard Gauges</h3>
+          <p>Plug, ring, snap, and thread gauges manufactured to controlled tolerances.</p>
+        </article>
+        <article class="s1-card">
+          <span>02</span>
+          <h3>Custom Gauge Design</h3>
+          <p>Application-specific gauges designed from drawings, samples, or process needs.</p>
+        </article>
+        <article class="s1-card">
+          <span>03</span>
+          <h3>Calibration Services</h3>
+          <p>Traceable calibration support with documentation for audit-ready quality teams.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="s1-section s1-split-section">
+    <div class="container s1-split">
+      <div class="s1-photo-placeholder"></div>
+      <div>
+        <p class="s1-kicker">Markets served</p>
+        <h2>Built for the manufacturing chain.</h2>
+        <p>
+          Automotive, aerospace, medical devices, oil and gas equipment, precision machining,
+          and tool and die teams rely on stable measurement tools to keep production moving.
+        </p>
+        <div class="s1-list">
+          <span>Automotive Manufacturing</span>
+          <span>Aerospace &amp; Defense</span>
+          <span>Medical Device Manufacturing</span>
+          <span>Precision Machining</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s1-section">
+    <div class="container s1-report">
+      <div>
+        <p class="s1-kicker">Custom solutions</p>
+        <h2>From concept to certified gauge.</h2>
+      </div>
+      <p>
+        Our engineering team supports prototype development, material selection, reverse engineering,
+        production runs, and documentation for demanding inspection workflows.
+      </p>
+      <a class="s1-button s1-primary" href="/contact">Discuss your project</a>
+    </div>
+  </section>
+</BaseLayout>
+
+<style>
+  :global(body) {
+    background: #f5f5f2;
+    color: #161616;
+  }
+
+  :global(.navigation) {
+    border-bottom: 1px solid #ddddd6;
+    background: rgba(245, 245, 242, 0.96);
+    backdrop-filter: blur(12px);
+  }
+
+  :global(.nav-logo a) {
+    color: #d71920;
+  }
+
+  :global(.nav-link.active),
+  :global(.nav-link:hover) {
+    background: #d71920;
+    color: #fff;
+  }
+
+  :global(.footer) {
+    border-top: 1px solid #ddddd6;
+    background: #fff;
+    margin-top: 0;
+  }
+
+  .s1-hero {
+    min-height: 680px;
+    padding: 92px 0 64px;
+    background:
+      linear-gradient(90deg, rgba(245, 245, 242, 0.98) 0%, rgba(245, 245, 242, 0.86) 48%, rgba(245, 245, 242, 0.35) 100%),
+      repeating-linear-gradient(135deg, #e5e5df 0 2px, transparent 2px 24px);
+  }
+
+  .s1-hero-grid,
+  .s1-split {
+    display: grid;
+    grid-template-columns: minmax(0, 0.92fr) minmax(320px, 1.08fr);
+    gap: 56px;
+    align-items: center;
+  }
+
+  .s1-copy h1 {
+    max-width: 760px;
+    font-size: 64px;
+    line-height: 1.02;
+    margin-bottom: 24px;
+  }
+
+  .s1-copy p {
+    max-width: 600px;
+    color: #4b4b45;
+    font-size: 19px;
+  }
+
+  .s1-kicker {
+    color: #d71920;
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: 0.08em;
+    margin-bottom: 14px;
+    text-transform: uppercase;
+  }
+
+  .s1-actions {
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    margin-top: 34px;
+  }
+
+  .s1-button {
+    border: 1px solid #1b1b1b;
+    color: #1b1b1b;
+    display: inline-flex;
+    align-items: center;
+    min-height: 48px;
+    padding: 12px 22px;
+    font-weight: 750;
+  }
+
+  .s1-primary {
+    border-color: #d71920;
+    background: #d71920;
+    color: #fff;
+  }
+
+  .s1-visual {
+    min-height: 430px;
+    position: relative;
+  }
+
+  .s1-visual-panel {
+    position: absolute;
+    inset: 0;
+    border-radius: 0 0 0 96px;
+    background:
+      linear-gradient(140deg, rgba(215, 25, 32, 0.8), rgba(215, 25, 32, 0.15) 32%, transparent 32%),
+      linear-gradient(135deg, #232323 0%, #70706a 56%, #e8e8e2 100%);
+    box-shadow: 0 34px 80px rgba(22, 22, 22, 0.18);
+  }
+
+  .s1-visual-panel::after {
+    content: "";
+    position: absolute;
+    inset: 42px;
+    border: 1px solid rgba(255, 255, 255, 0.42);
+    background:
+      linear-gradient(90deg, transparent 0 58%, rgba(255, 255, 255, 0.16) 58% 62%, transparent 62%),
+      repeating-linear-gradient(90deg, rgba(255,255,255,0.2) 0 1px, transparent 1px 54px);
+  }
+
+  .s1-visual-card {
+    position: absolute;
+    right: 28px;
+    bottom: 28px;
+    width: min(280px, calc(100% - 56px));
+    background: #fff;
+    border-left: 6px solid #d71920;
+    padding: 22px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+  }
+
+  .s1-visual-card strong,
+  .s1-visual-card span {
+    display: block;
+  }
+
+  .s1-band {
+    background: #202020;
+    color: #fff;
+    padding: 34px 0;
+  }
+
+  .s1-stat-grid,
+  .s1-card-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+  }
+
+  .s1-stat-grid div {
+    border-left: 1px solid rgba(255,255,255,0.24);
+    padding: 0 24px;
+  }
+
+  .s1-stat-grid strong {
+    display: block;
+    font-size: 34px;
+    line-height: 1.1;
+  }
+
+  .s1-stat-grid span {
+    color: #d8d8d0;
+    font-size: 14px;
+  }
+
+  .s1-section {
+    padding: 86px 0;
+    background: #fff;
+  }
+
+  .s1-section:nth-of-type(odd) {
+    background: #f5f5f2;
+  }
+
+  .s1-heading-row {
+    max-width: 760px;
+    margin-bottom: 36px;
+  }
+
+  .s1-heading-row h2,
+  .s1-split h2,
+  .s1-report h2 {
+    font-size: 42px;
+    line-height: 1.12;
+  }
+
+  .s1-card-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .s1-card {
+    min-height: 260px;
+    border: 1px solid #deded7;
+    background: #fff;
+    padding: 30px;
+  }
+
+  .s1-card span {
+    color: #d71920;
+    font-size: 13px;
+    font-weight: 800;
+  }
+
+  .s1-card p,
+  .s1-split p,
+  .s1-report p {
+    color: #55554f;
+  }
+
+  .s1-photo-placeholder {
+    min-height: 430px;
+    background:
+      linear-gradient(135deg, rgba(215,25,32,0.18), transparent 34%),
+      repeating-linear-gradient(0deg, #c9c9c0 0 12px, #eeeeea 12px 24px);
+  }
+
+  .s1-list {
+    display: grid;
+    gap: 12px;
+    margin-top: 26px;
+  }
+
+  .s1-list span {
+    border-top: 1px solid #d6d6cf;
+    padding-top: 12px;
+    font-weight: 750;
+  }
+
+  .s1-report {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr auto;
+    gap: 36px;
+    align-items: center;
+    border-top: 1px solid #d6d6cf;
+    border-bottom: 1px solid #d6d6cf;
+    padding-top: 42px;
+    padding-bottom: 42px;
+  }
+
+  @media (max-width: 900px) {
+    .s1-hero-grid,
+    .s1-split,
+    .s1-report {
+      grid-template-columns: 1fr;
+    }
+
+    .s1-copy h1 {
+      font-size: 44px;
+    }
+
+    .s1-stat-grid,
+    .s1-card-grid {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .s1-hero {
+      min-height: auto;
+      padding-top: 56px;
+    }
+
+    .s1-copy h1,
+    .s1-heading-row h2,
+    .s1-split h2,
+    .s1-report h2 {
+      font-size: 32px;
+    }
+
+    .s1-stat-grid,
+    .s1-card-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .s1-actions {
+      flex-direction: column;
+    }
+  }
+</style>

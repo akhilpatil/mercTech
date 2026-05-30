@@ -5,8 +5,8 @@ import Button from './Button.astro';
 <section class="hero">
   <div class="container">
     <div class="hero-content">
-      <h1>Precision Gauge Manufacturing for Critical Tolerances</h1>
-      <p class="hero-subtitle">
+      <h1 data-heading-cycle>Precision You Can Trust</h1>
+      <p class="hero-subtitle" data-subtitle-cycle>
         ISO-certified gauge solutions engineered for automotive, aerospace, and manufacturing industries.
         Custom and standard gauges built to exacting specifications.
       </p>
@@ -28,6 +28,44 @@ import Button from './Button.astro';
     </div>
   </div>
 </section>
+
+<script>
+  const headingOptions = [
+    'Precision You Can Trust',
+    'Custom Gauges Built for Mission-Critical Measurements',
+    'Exacting Gauge Solutions for Demanding Production Lines',
+    'High-Precision Gauges Engineered for Reliable Inspection',
+    'Measurement Tools Built to Hold the Tightest Tolerances',
+  ];
+  const subtitleOptions = [
+    'ISO-certified gauge solutions engineered for automotive, aerospace, and manufacturing industries. Custom and standard gauges built to exacting specifications.',
+    'From plug and ring gauges to custom inspection fixtures, we build measurement tools that keep production quality on target.',
+    'Precision-built gauges, calibration support, and custom solutions for teams that cannot afford inspection uncertainty.',
+    'Engineered for repeatable measurement, long service life, and dependable performance across high-demand manufacturing environments.',
+    'Standard and custom gauge manufacturing backed by tight process control, practical engineering support, and fast quoting.',
+  ];
+
+  const cyclingHeading = document.querySelector('[data-heading-cycle]');
+  const cyclingSubtitle = document.querySelector('[data-subtitle-cycle]');
+
+  if (cyclingHeading) {
+    let headingIndex = 0;
+
+    cyclingHeading.addEventListener('click', () => {
+      headingIndex = (headingIndex + 1) % headingOptions.length;
+      cyclingHeading.textContent = headingOptions[headingIndex];
+    });
+  }
+
+  if (cyclingSubtitle) {
+    let subtitleIndex = 0;
+
+    cyclingSubtitle.addEventListener('click', () => {
+      subtitleIndex = (subtitleIndex + 1) % subtitleOptions.length;
+      cyclingSubtitle.textContent = subtitleOptions[subtitleIndex];
+    });
+  }
+</script>
 
 <style>
   .hero {

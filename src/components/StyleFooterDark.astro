@@ -4,25 +4,25 @@ import TemporaryPageNav from './TemporaryPageNav.astro';
 const currentYear = new Date().getFullYear();
 ---
 
-<footer class="footer">
+<footer class="sfooter">
   <div class="container">
-    <div class="footer-content">
-      <div class="footer-section">
+    <div class="sfooter-content">
+      <div class="sfooter-section">
         <h4>Merc Technologies</h4>
         <p>Precision Gauge Manufacturing</p>
-        <p class="text-small">Since 2003</p>
+        <p class="sfooter-small">Since 2003</p>
       </div>
 
-      <div class="footer-section">
+      <div class="sfooter-section">
         <h4>Contact</h4>
         <p>Email: merctech03@yahoo.co.in</p>
         <p>Phone: +91 9845765081</p>
         <p>Phone: +91 9845538144</p>
       </div>
 
-      <div class="footer-section">
+      <div class="sfooter-section">
         <h4>Quick Links</h4>
-        <ul class="footer-links">
+        <ul class="sfooter-links">
           <li><a href="/">Home</a></li>
           <li><a href="/about">About</a></li>
           <li><a href="/products">Products</a></li>
@@ -31,62 +31,68 @@ const currentYear = new Date().getFullYear();
       </div>
     </div>
 
-    <div class="footer-bottom">
-      <TemporaryPageNav />
-      <p class="text-small">© {currentYear} Merc Technologies. All rights reserved.</p>
+    <div class="sfooter-bottom">
+      <TemporaryPageNav tone="dark" />
+      <p class="sfooter-small">© {currentYear} Merc Technologies. All rights reserved.</p>
     </div>
   </div>
 </footer>
 
 <style>
-  .footer {
-    border-top: var(--border-thick);
-    background-color: var(--color-white);
+  .sfooter {
+    background-color: #0e0f12;
+    color: #f7f7f4;
     padding: var(--space-2xl) 0 var(--space-lg) 0;
-    margin-top: var(--space-2xl);
   }
 
-  .footer-content {
+  .sfooter-content {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     gap: var(--space-xl);
     margin-bottom: var(--space-xl);
   }
 
-  .footer-section h4 {
+  .sfooter-section h4 {
+    color: #f7f7f4;
     margin-bottom: var(--space-sm);
   }
 
-  .footer-section p {
+  .sfooter-section p {
+    color: #c9c9c3;
     margin-bottom: var(--space-xs);
   }
 
-  .footer-links {
+  .sfooter-small {
+    opacity: 0.7;
+  }
+
+  .sfooter-links {
     list-style: none;
     padding: 0;
     margin: 0;
   }
 
-  .footer-links li {
+  .sfooter-links li {
     margin-bottom: var(--space-xs);
   }
 
-  .footer-links a {
+  .sfooter-links a {
+    color: #f7f7f4;
     text-decoration: underline;
   }
 
-  .footer-links a:hover {
+  .sfooter-links a:hover {
     font-weight: 600;
   }
 
-  .footer-bottom {
+  .sfooter-bottom {
     padding-top: var(--space-lg);
-    border-top: var(--border-thin);
+    border-top: 1px solid rgba(255, 255, 255, 0.16);
     text-align: center;
   }
 
   @media (max-width: 640px) {
-    .footer-content {
+    .sfooter-content {
       grid-template-columns: 1fr;
       gap: var(--space-lg);
     }

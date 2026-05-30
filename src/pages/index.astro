@@ -15,7 +15,7 @@ import Button from '../components/Button.astro';
     <div class="grid grid-3">
       <ServiceCard
         title="Standard Gauges"
-        description="Complete line of plug, ring, snap, and thread gauges manufactured to ASME B89.1.5 and ISO 1938 standards."
+        description="Complete line of plug, ring, snap, and thread gauges manufactured to NABL standards."
       />
       <ServiceCard
         title="Custom Gauge Design"
@@ -23,7 +23,7 @@ import Button from '../components/Button.astro';
       />
       <ServiceCard
         title="Calibration Services"
-        description="NIST-traceable calibration and certification for all gauge types with fast turnaround."
+        description="NABL-traceable calibration and certification for all gauge types with fast turnaround."
       />
     </div>
   </Section>
@@ -32,12 +32,30 @@ import Button from '../components/Button.astro';
   <Section className="industries-section">
     <h2 class="text-center mb-lg">Industries We Serve</h2>
     <div class="industries-grid">
-      <div class="industry-item">Automotive Manufacturing</div>
-      <div class="industry-item">Aerospace & Defense</div>
-      <div class="industry-item">Medical Device Manufacturing</div>
-      <div class="industry-item">Oil & Gas Equipment</div>
-      <div class="industry-item">Precision Machining</div>
-      <div class="industry-item">Tool & Die</div>
+      <div class="industry-card card">
+        <div class="image-placeholder image-placeholder-4-3"></div>
+        <h3>Automotive Manufacturing</h3>
+      </div>
+      <div class="industry-card card">
+        <div class="image-placeholder image-placeholder-4-3"></div>
+        <h3>Aerospace & Defense</h3>
+      </div>
+      <div class="industry-card card">
+        <div class="image-placeholder image-placeholder-4-3"></div>
+        <h3>Medical Device Manufacturing</h3>
+      </div>
+      <div class="industry-card card">
+        <div class="image-placeholder image-placeholder-4-3"></div>
+        <h3>Oil & Gas Equipment</h3>
+      </div>
+      <div class="industry-card card">
+        <div class="image-placeholder image-placeholder-4-3"></div>
+        <h3>Precision Machining</h3>
+      </div>
+      <div class="industry-card card">
+        <div class="image-placeholder image-placeholder-4-3"></div>
+        <h3>Tool & Die</h3>
+      </div>
     </div>
   </Section>
 
@@ -48,27 +66,22 @@ import Button from '../components/Button.astro';
       <div class="category-card card">
         <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
         <h3>Plain Gauges</h3>
-        <p>Plug, ring, and snap gauges for dimensional inspection. Available in standard sizes or custom configurations.</p>
       </div>
       <div class="category-card card">
         <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
         <h3>Thread Gauges</h3>
-        <p>UN, UNJ, Metric, NPT, and custom thread forms. Class X, XX, and XXX tolerance grades available.</p>
       </div>
       <div class="category-card card">
         <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
         <h3>Carbide Gauges</h3>
-        <p>Superior wear resistance for high-volume production environments. Sizes from 0.010" to 12.000".</p>
       </div>
       <div class="category-card card">
         <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
-        <h3>Master Gauges</h3>
-        <p>Setting masters and calibration standards for gauge verification and quality system compliance.</p>
+        <h3>Ring Gauges</h3>
       </div>
       <div class="category-card card">
         <div class="image-placeholder image-placeholder-4-3 mb-md"></div>
         <h3>Special Gauges</h3>
-        <p>Custom solutions including form gauges, fixture gauges, and application-specific inspection tools.</p>
       </div>
     </div>
   </Section>
@@ -119,42 +132,11 @@ import Button from '../components/Button.astro';
       </div>
       <div class="feature-item">
         <h4>Material Options</h4>
-        <p>Tool steel, carbide, chrome plated, and specialized materials for demanding applications.</p>
+        <p>Gauge steel, carbide, chrome plated, and specialized materials for demanding applications.</p>
       </div>
       <div class="feature-item">
         <h4>Competitive Pricing</h4>
         <p>Direct manufacturer pricing with volume discounts available for production quantities.</p>
-      </div>
-    </div>
-  </Section>
-
-  <!-- Use Case -->
-  <Section className="use-case">
-    <h2 class="text-center mb-lg">Use Case: Automotive Shaft Inspection</h2>
-    <div class="use-case-content">
-      <div class="use-case-challenge">
-        <h3>Challenge</h3>
-        <p>
-          A Tier 1 automotive supplier needed to inspect transmission shafts with a tolerance of ±0.0002"
-          at high volume (10,000+ parts per day). Standard commercial gauges wore out too quickly,
-          causing quality issues and production delays.
-        </p>
-      </div>
-      <div class="use-case-solution">
-        <h3>Solution</h3>
-        <p>
-          Merc Technologies designed custom carbide snap gauges with hardened anvils specifically
-          for this application. The gauge design included wear indicators and quick-change contact points.
-        </p>
-      </div>
-      <div class="use-case-results">
-        <h3>Results</h3>
-        <ul>
-          <li>Gauge life increased from 2 weeks to 6 months</li>
-          <li>Inspection time reduced by 40%</li>
-          <li>Zero quality escapes since implementation</li>
-          <li>$45,000 annual savings in gauge replacement costs</li>
-        </ul>
       </div>
     </div>
   </Section>
@@ -179,24 +161,27 @@ import Button from '../components/Button.astro';
   .industries-grid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: var(--space-md);
+    gap: var(--space-lg);
   }
 
-  .industry-item {
-    padding: var(--space-lg);
-    border: var(--border-thin);
+  .industry-card {
     text-align: center;
-    font-weight: 600;
+  }
+
+  .industry-card h3 {
+    margin-top: var(--space-md);
+    margin-bottom: 0;
   }
 
   .product-categories {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(3, 1fr);
     gap: var(--space-lg);
   }
 
   .category-card h3 {
-    margin-bottom: var(--space-sm);
+    margin-bottom: 0;
+    text-align: center;
   }
 
   .custom-content {
@@ -225,24 +210,6 @@ import Button from '../components/Button.astro';
     margin-bottom: 0;
   }
 
-  .use-case-content {
-    display: grid;
-    gap: var(--space-lg);
-  }
-
-  .use-case-challenge,
-  .use-case-solution,
-  .use-case-results {
-    padding: var(--space-lg);
-    border: var(--border-thin);
-  }
-
-  .use-case-challenge h3,
-  .use-case-solution h3,
-  .use-case-results h3 {
-    margin-bottom: var(--space-md);
-  }
-
   .final-cta .cta-content {
     text-align: center;
     max-width: 700px;
@@ -258,6 +225,10 @@ import Button from '../components/Button.astro';
 
   @media (max-width: 640px) {
     .industries-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .product-categories {
       grid-template-columns: 1fr;
     }
 

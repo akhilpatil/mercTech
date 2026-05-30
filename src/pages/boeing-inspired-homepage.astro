@@ -1,0 +1,581 @@
+---
+// Boeing-inspired homepage — a copy of the homepage information presented in the
+// visual style of https://www.boeing.com/ (deep-blue gradients, news/product card
+// grids, three-pillar purpose band, multi-column navy footer).
+import '../styles/global.css';
+import TemporaryPageNav from '../components/TemporaryPageNav.astro';
+
+const title = 'Boeing Inspired Homepage';
+const description = 'Merc Technologies - Precision Gauge Manufacturing for Critical Tolerances';
+
+const navItems = [
+  { href: '/', label: 'Home' },
+  { href: '/products', label: 'Products' },
+  { href: '/about', label: 'About' },
+  { href: '/contact', label: 'Contact' }
+];
+
+// "Recent news" maps to the homepage's "What We Do" services.
+const services = [
+  { title: 'Standard Gauges', text: 'Complete line of plug, ring, snap, and thread gauges manufactured to NABL standards.' },
+  { title: 'Custom Gauge Design', text: 'Engineering services for special-purpose gauges designed to your exact specifications and tolerances.' },
+  { title: 'Calibration Services', text: 'NABL-traceable calibration and certification for all gauge types with fast turnaround.' }
+];
+
+// "Featured products" maps to the homepage's "Product Overview".
+const products = [
+  { tag: 'Plain', name: 'Plain Gauges' },
+  { tag: 'Thread', name: 'Thread Gauges' },
+  { tag: 'Carbide', name: 'Carbide Gauges' },
+  { tag: 'Ring', name: 'Ring Gauges' },
+  { tag: 'Special', name: 'Special Gauges' }
+];
+
+const industries = [
+  'Automotive Manufacturing',
+  'Aerospace & Defense',
+  'Medical Device Manufacturing',
+  'Oil & Gas Equipment',
+  'Precision Machining',
+  'Tool & Die'
+];
+
+const features = [
+  { title: 'Precision Manufacturing', text: 'State-of-the-art CNC grinding and lapping equipment ensures micron-level accuracy on every gauge.' },
+  { title: 'Quality Assurance', text: 'ISO 9001:2015 certified processes with 100% inspection and full traceability documentation.' },
+  { title: 'Fast Turnaround', text: 'Standard gauges ship in 5-7 days. Custom gauges typically delivered in 3-4 weeks.' },
+  { title: 'Technical Support', text: 'Expert application engineers available to help select the right gauge for your needs.' },
+  { title: 'Material Options', text: 'Gauge steel, carbide, chrome plated, and specialized materials for demanding applications.' },
+  { title: 'Competitive Pricing', text: 'Direct manufacturer pricing with volume discounts available for production quantities.' }
+];
+
+const currentYear = new Date().getFullYear();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content={description} />
+    <title>{title} | Merc Technologies</title>
+  </head>
+  <body class="bo">
+    <!-- Navigation -->
+    <nav class="bo-nav">
+      <div class="container bo-nav-content">
+        <a class="bo-logo" href="/">MERC TECHNOLOGIES</a>
+        <button class="bo-hamburger" aria-label="Toggle menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+        <ul class="bo-nav-links">
+          {navItems.map(item => (
+            <li><a href={item.href}>{item.label}</a></li>
+          ))}
+        </ul>
+      </div>
+    </nav>
+
+    <main>
+      <!-- Hero -->
+      <section class="bo-hero">
+        <div class="container">
+          <h1>Connect, protect and explore<br />your world and beyond</h1>
+          <p>
+            Precision gauges and inspection solutions engineered for production teams
+            who can't afford to be wrong about a measurement.
+          </p>
+          <div class="bo-hero-actions">
+            <a class="bo-btn bo-btn-primary" href="/contact">Request a quote</a>
+            <a class="bo-btn bo-btn-ghost" href="/products">Browse products</a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Recent news (What We Do) -->
+      <section class="bo-section">
+        <div class="container">
+          <h2 class="bo-h2">What we do</h2>
+          <div class="bo-news-grid">
+            <article class="bo-news-lead">
+              <div class="bo-news-img"></div>
+              <div class="bo-news-body">
+                <span class="bo-eyebrow">Precision gauge manufacturing since 2003</span>
+                <h3>Repeatable accuracy across every measured part</h3>
+                <p>Standard and custom gauges, plus traceable calibration, built for critical tolerances.</p>
+                <a class="bo-link" href="/products">View all products &rsaquo;</a>
+              </div>
+            </article>
+            <div class="bo-news-side">
+              {services.map(s => (
+                <article class="bo-news-card">
+                  <div class="bo-news-img sm"></div>
+                  <div class="bo-news-body">
+                    <h4>{s.title}</h4>
+                    <p>{s.text}</p>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Featured products (Product Overview) -->
+      <section class="bo-section bo-section-alt">
+        <div class="container">
+          <h2 class="bo-h2">Featured products</h2>
+          <div class="bo-product-grid">
+            {products.map(p => (
+              <a class="bo-product-card" href="/products">
+                <div class="bo-product-img"></div>
+                <div class="bo-product-meta">
+                  <span class="bo-product-tag">{p.tag}</span>
+                  <h3>{p.name}</h3>
+                  <span class="bo-link">Product info &rsaquo;</span>
+                </div>
+              </a>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Purpose band: three pillars (Industries) -->
+      <section class="bo-purpose">
+        <div class="container">
+          <span class="bo-eyebrow light">Our purpose</span>
+          <h2>Innovating precision measurement since 2003</h2>
+          <p class="bo-lead">
+            A trusted manufacturer of standard and custom gauges, serving demanding
+            industries that depend on stable, certified inspection tools.
+          </p>
+          <div class="bo-pillar-grid">
+            <div class="bo-pillar">
+              <h3>Markets served</h3>
+              <ul class="bo-pillar-list">
+                {industries.map(i => <li>{i}</li>)}
+              </ul>
+              <a class="bo-link light" href="/about">Industries &rsaquo;</a>
+            </div>
+            <div class="bo-pillar">
+              <h3>Custom gauge solutions</h3>
+              <p>
+                When standard gauges don't meet your requirements, our engineering
+                team designs and manufactures custom solutions — from concept to delivery.
+              </p>
+              <ul class="bo-pillar-list">
+                <li>In-house engineering and design</li>
+                <li>Reverse engineering capabilities</li>
+                <li>Prototype development</li>
+                <li>Production runs of any quantity</li>
+                <li>Full documentation and certification</li>
+              </ul>
+              <a class="bo-link light" href="/contact">Discuss your project &rsaquo;</a>
+            </div>
+            <div class="bo-pillar">
+              <h3>Global services</h3>
+              <p>
+                Expert application engineers help you select the right gauge, calibrate
+                with full traceability, and keep production lines moving with fast turnaround.
+              </p>
+              <a class="bo-link light" href="/contact">Contact us &rsaquo;</a>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Supporting responsible growth (Why Merc) -->
+      <section class="bo-section">
+        <div class="container">
+          <span class="bo-eyebrow">Our commitment</span>
+          <h2 class="bo-h2">Why Merc Technologies</h2>
+          <div class="bo-feature-grid">
+            {features.map(f => (
+              <div class="bo-feature">
+                <h4>{f.title}</h4>
+                <p>{f.text}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <!-- Search / Explore more CTA -->
+      <section class="bo-cta">
+        <div class="container">
+          <h2>Ready to improve your quality process?</h2>
+          <p>
+            Contact our engineering team to discuss your gauge requirements.
+            We'll help you select or design the perfect solution.
+          </p>
+          <div class="bo-hero-actions">
+            <a class="bo-btn bo-btn-primary" href="/contact">Request quote</a>
+            <a class="bo-btn bo-btn-ghost" href="/products">Browse products</a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bo-footer">
+      <div class="container">
+        <div class="bo-footer-grid">
+          <div class="bo-footer-col">
+            <h4>Merc Technologies</h4>
+            <p>Precision Gauge Manufacturing</p>
+            <p class="muted">Since 2003</p>
+          </div>
+          <div class="bo-footer-col">
+            <h4>Explore</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about">About</a></li>
+              <li><a href="/products">Products</a></li>
+              <li><a href="/contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="bo-footer-col">
+            <h4>Products</h4>
+            <ul>
+              {products.map(p => <li><a href="/products">{p.name}</a></li>)}
+            </ul>
+          </div>
+          <div class="bo-footer-col">
+            <h4>Contact</h4>
+            <p>Email: merctech03@yahoo.co.in</p>
+            <p>Phone: +91 9845765081</p>
+            <p>Phone: +91 9845538144</p>
+          </div>
+        </div>
+        <div class="bo-footer-bottom">
+          <TemporaryPageNav tone="dark" />
+          <p class="muted">© {currentYear} Merc Technologies. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      const hamburger = document.querySelector('.bo-hamburger');
+      const navLinks = document.querySelector('.bo-nav-links');
+      if (hamburger && navLinks) {
+        hamburger.addEventListener('click', () => {
+          const expanded = hamburger.getAttribute('aria-expanded') === 'true';
+          hamburger.setAttribute('aria-expanded', (!expanded).toString());
+          hamburger.classList.toggle('active');
+          navLinks.classList.toggle('active');
+        });
+      }
+    </script>
+
+    <style>
+      /* ---- Boeing-inspired palette ---- */
+      .bo {
+        --bo-navy: #0b1f4d;
+        --bo-blue: #1b3a87;
+        --bo-blue-bright: #1565d8;
+        --bo-sky: #4a90e2;
+        --bo-ink: #1a2a44;
+        --bo-grey: #5a6b85;
+        --bo-cloud: #f1f4f9;
+        --bo-line: #dbe2ee;
+        background: #fff;
+        color: var(--bo-ink);
+        font-family: var(--font-system);
+      }
+      .bo main { display: block; }
+
+      /* ---- Navigation ---- */
+      .bo-nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--bo-navy);
+      }
+      .bo-nav-content {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px 24px;
+      }
+      .bo-logo {
+        color: #fff;
+        font-size: 20px;
+        font-weight: 700;
+        letter-spacing: 0.5px;
+      }
+      .bo-nav-links {
+        display: flex;
+        gap: 8px;
+        list-style: none;
+        margin: 0;
+        padding: 0;
+      }
+      .bo-nav-links a {
+        display: block;
+        padding: 8px 16px;
+        color: #e7edf8;
+        font-weight: 600;
+        border-radius: 4px;
+        transition: background 0.2s ease;
+      }
+      .bo-nav-links a:hover { background: rgba(255, 255, 255, 0.12); color: #fff; }
+      .bo-hamburger {
+        display: none;
+        flex-direction: column;
+        gap: 5px;
+        background: none;
+        border: 0;
+        cursor: pointer;
+        padding: 6px;
+      }
+      .bo-hamburger span {
+        width: 25px;
+        height: 2px;
+        background: #fff;
+        display: block;
+      }
+
+      /* ---- Hero ---- */
+      .bo-hero {
+        color: #fff;
+        padding: 120px 0 96px;
+        background:
+          linear-gradient(105deg, rgba(11, 31, 77, 0.96) 0%, rgba(21, 58, 135, 0.86) 45%, rgba(21, 101, 216, 0.45) 100%),
+          radial-gradient(120% 140% at 80% 0%, #2a6fd6 0%, #0b1f4d 60%);
+      }
+      .bo-hero h1 {
+        font-size: 54px;
+        line-height: 1.08;
+        font-weight: 700;
+        margin-bottom: 20px;
+        max-width: 720px;
+      }
+      .bo-hero p {
+        font-size: 19px;
+        max-width: 540px;
+        color: #dce6f7;
+        margin-bottom: 32px;
+      }
+      .bo-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; }
+
+      .bo-btn {
+        display: inline-flex;
+        align-items: center;
+        min-height: 48px;
+        padding: 12px 28px;
+        font-weight: 700;
+        border-radius: 4px;
+        transition: all 0.2s ease;
+      }
+      .bo-btn-primary { background: var(--bo-blue-bright); color: #fff; }
+      .bo-btn-primary:hover { background: #0d4eb0; }
+      .bo-btn-ghost { border: 1px solid rgba(255, 255, 255, 0.7); color: #fff; }
+      .bo-btn-ghost:hover { background: rgba(255, 255, 255, 0.12); }
+
+      /* ---- Sections ---- */
+      .bo-section { padding: 80px 0; background: #fff; }
+      .bo-section-alt { background: var(--bo-cloud); }
+      .bo-h2 {
+        font-size: 34px;
+        color: var(--bo-navy);
+        margin-bottom: 36px;
+      }
+      .bo-eyebrow {
+        display: inline-block;
+        font-size: 12px;
+        font-weight: 800;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--bo-blue-bright);
+        margin-bottom: 12px;
+      }
+      .bo-eyebrow.light { color: #7fb2ff; }
+      .bo-link {
+        color: var(--bo-blue-bright);
+        font-weight: 700;
+        font-size: 14px;
+      }
+      .bo-link.light { color: #9cc4ff; }
+
+      /* ---- Recent news grid ---- */
+      .bo-news-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 28px;
+      }
+      .bo-news-lead {
+        border: 1px solid var(--bo-line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .bo-news-img {
+        aspect-ratio: 16 / 9;
+        background: linear-gradient(135deg, #1b3a87, #4a90e2);
+      }
+      .bo-news-img.sm { aspect-ratio: 1 / 1; }
+      .bo-news-body { padding: 24px; }
+      .bo-news-body h3 { color: var(--bo-navy); margin-bottom: 8px; }
+      .bo-news-body p { color: var(--bo-grey); margin-bottom: 12px; }
+      .bo-news-side { display: grid; gap: 20px; }
+      .bo-news-card {
+        display: grid;
+        grid-template-columns: 120px 1fr;
+        border: 1px solid var(--bo-line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+      }
+      .bo-news-card .bo-news-body { padding: 18px; }
+      .bo-news-card h4 { color: var(--bo-navy); margin-bottom: 6px; }
+      .bo-news-card p { color: var(--bo-grey); font-size: 14px; margin: 0; }
+
+      /* ---- Product cards ---- */
+      .bo-product-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .bo-product-card {
+        border: 1px solid var(--bo-line);
+        border-radius: 8px;
+        overflow: hidden;
+        background: #fff;
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
+      }
+      .bo-product-card:hover {
+        box-shadow: 0 18px 40px rgba(11, 31, 77, 0.14);
+        transform: translateY(-3px);
+      }
+      .bo-product-img {
+        aspect-ratio: 16 / 10;
+        background: linear-gradient(135deg, #0b1f4d 0%, #1565d8 100%);
+      }
+      .bo-product-meta { padding: 20px; }
+      .bo-product-tag {
+        display: block;
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--bo-grey);
+        margin-bottom: 4px;
+      }
+      .bo-product-meta h3 { color: var(--bo-navy); font-size: 20px; margin-bottom: 12px; }
+
+      /* ---- Purpose band ---- */
+      .bo-purpose {
+        padding: 88px 0;
+        color: #fff;
+        background:
+          linear-gradient(120deg, #0b1f4d 0%, #14306e 55%, #1d52b8 100%);
+      }
+      .bo-purpose h2 { font-size: 36px; margin-bottom: 16px; max-width: 760px; }
+      .bo-lead { font-size: 18px; color: #cdddf7; max-width: 680px; margin-bottom: 44px; }
+      .bo-pillar-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .bo-pillar {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        border-radius: 8px;
+        padding: 28px;
+      }
+      .bo-pillar h3 { color: #fff; margin-bottom: 14px; }
+      .bo-pillar p { color: #cdddf7; margin-bottom: 14px; }
+      .bo-pillar-list { list-style: none; padding: 0; margin: 0 0 16px; }
+      .bo-pillar-list li {
+        padding: 8px 0;
+        border-top: 1px solid rgba(255, 255, 255, 0.14);
+        color: #e3ecfb;
+        font-weight: 600;
+      }
+
+      /* ---- Feature grid ---- */
+      .bo-feature-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 24px;
+      }
+      .bo-feature {
+        padding: 28px;
+        border: 1px solid var(--bo-line);
+        border-left: 4px solid var(--bo-blue-bright);
+        border-radius: 6px;
+        background: #fff;
+      }
+      .bo-feature h4 { color: var(--bo-navy); margin-bottom: 8px; }
+      .bo-feature p { color: var(--bo-grey); margin: 0; }
+
+      /* ---- CTA ---- */
+      .bo-cta {
+        padding: 88px 0;
+        color: #fff;
+        text-align: center;
+        background: radial-gradient(120% 160% at 50% 0%, #1d52b8 0%, #0b1f4d 65%);
+      }
+      .bo-cta h2 { font-size: 34px; margin-bottom: 14px; }
+      .bo-cta p { color: #cdddf7; max-width: 620px; margin: 0 auto 30px; font-size: 18px; }
+      .bo-cta .bo-hero-actions { justify-content: center; }
+
+      /* ---- Footer ---- */
+      .bo-footer {
+        background: #081633;
+        color: #c7d3ea;
+        padding: 64px 0 28px;
+      }
+      .bo-footer-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 32px;
+        margin-bottom: 40px;
+      }
+      .bo-footer-col h4 { color: #fff; margin-bottom: 14px; font-size: 16px; }
+      .bo-footer-col p { color: #c7d3ea; margin-bottom: 6px; font-size: 14px; }
+      .bo-footer-col ul { list-style: none; padding: 0; margin: 0; }
+      .bo-footer-col li { margin-bottom: 8px; }
+      .bo-footer-col a { color: #c7d3ea; font-size: 14px; }
+      .bo-footer-col a:hover { color: #fff; text-decoration: underline; }
+      .muted { opacity: 0.65; }
+      .bo-footer-bottom {
+        border-top: 1px solid rgba(255, 255, 255, 0.12);
+        padding-top: 22px;
+        text-align: center;
+      }
+
+      /* ---- Responsive ---- */
+      @media (max-width: 900px) {
+        .bo-news-grid,
+        .bo-product-grid,
+        .bo-pillar-grid,
+        .bo-feature-grid { grid-template-columns: 1fr; }
+        .bo-product-grid { grid-template-columns: 1fr 1fr; }
+        .bo-footer-grid { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 768px) {
+        .bo-hamburger { display: flex; }
+        .bo-nav-links {
+          position: absolute;
+          top: 100%;
+          left: 0;
+          right: 0;
+          flex-direction: column;
+          gap: 0;
+          background: var(--bo-navy);
+          padding: 8px 16px 16px;
+          display: none;
+        }
+        .bo-nav-links.active { display: flex; }
+        .bo-hero h1 { font-size: 38px; }
+      }
+      @media (max-width: 640px) {
+        .bo-product-grid,
+        .bo-footer-grid { grid-template-columns: 1fr; }
+        .bo-news-card { grid-template-columns: 90px 1fr; }
+        .bo-hero { padding: 72px 0 64px; }
+      }
+    </style>
+  </body>
+</html>
